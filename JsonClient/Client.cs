@@ -19,6 +19,13 @@ namespace JsonClient
         {
             Car c = new Car("Tesla", "Green", "JsonCar4");
 
+            Car c1 = new Car("Ford", "Blue", "AutoSaleCar1");
+            Car c2 = new Car("Saab", "Black", "AutoSaleCar2");
+
+            List<Car> cList = new List<Car> { c1, c2 };
+
+            AutoSale sale = new AutoSale("Dave", "Street Cheat 777", cList);
+
             using (TcpClient socket = new TcpClient("localhost", 10002))
 
             using (NetworkStream ns = socket.GetStream())
@@ -27,7 +34,7 @@ namespace JsonClient
             using (StreamWriter sw = new StreamWriter(ns))
 
             {
-                String jsonString = JsonConvert.SerializeObject(c);
+                String jsonString = JsonConvert.SerializeObject(sale);
 
                 sw.WriteLine(jsonString);
                 sw.Flush();

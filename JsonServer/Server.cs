@@ -42,9 +42,9 @@ namespace JsonServer
             {
                 String incomingString = sr.ReadLine();
 
-                Car c = JsonConvert.DeserializeObject<Car>(incomingString);
+                AutoSale sale = JsonConvert.DeserializeObject<AutoSale>(incomingString);
 
-                Console.WriteLine($"String in = {c}");
+                Console.WriteLine($"String in:\n{sale}");
             }
         }
     }

@@ -38,9 +38,9 @@ namespace PlainServer
             using (StreamWriter sw = new StreamWriter(socket.GetStream()))
 
             {
-                String incomingString = sr.ReadLine();
+                String incomingString = sr.ReadToEnd();
 
-                Console.WriteLine($"String in = {incomingString}");
+                Console.WriteLine($"String in:\n{incomingString}");
             }
         }
     }

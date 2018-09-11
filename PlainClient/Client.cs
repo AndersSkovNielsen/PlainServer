@@ -18,6 +18,13 @@ namespace PlainClient
         {
             Car c = new Car("Tesla", "Red", "EL23400");
 
+            Car c1 = new Car("Mercedes", "Yellow", "AutoSaleCar3");
+            Car c2 = new Car("Volvo", "Purple", "AutoSaleCar4");
+
+            List<Car> cList = new List<Car> { c1, c2 };
+
+            AutoSale sale = new AutoSale("Matthews", "Conway 31", cList);
+
             using (TcpClient socket = new TcpClient("localhost", 10001))
 
             using (NetworkStream ns = socket.GetStream())
@@ -26,7 +33,7 @@ namespace PlainClient
             using (StreamWriter sw = new StreamWriter(ns))
 
             {
-                sw.WriteLine($"{c.ToString()}");
+                sw.WriteLine($"{sale}");
                 sw.Flush();
             }
         }
